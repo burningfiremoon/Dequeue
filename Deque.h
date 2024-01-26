@@ -92,6 +92,13 @@ class Deque
     {
        // Implement this.  The output should be similar to that 
        // used in the Vector and Stack classes provided.
+       cout << "capacity= " << theCapacity << ", size =" << theSize << endl;
+       
+       cout << "< ";
+       for (int i = front; i < theSize; i++){
+        cout << i << " = " << objects[i] << ", ";
+       }
+       cout << " >" << endl;
     }
 
     void ddisplay() const // print out the contents of the objects 
