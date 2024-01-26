@@ -45,6 +45,17 @@ class Deque
         // (provided it is larger than the current size)
         // 
         // Implement this...
+        // complete
+        if (newCapacity > theSize){
+          Object * newArray = new Object [ newCapacity ];
+          for (int i = 0; i < theSize; i++){
+            newArray[i] = objects[i];
+          }
+          Object * temp = objects;
+          objects = newArray;
+          delete [] temp;
+          theCapacity = newCapacity;
+        }
 
 
     }
