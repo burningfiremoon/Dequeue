@@ -26,10 +26,17 @@ class Deque
 
     bool empty( ) const  { return size( ) == 0; }
     int size( ) const { return theSize; }
+
     void clear( ){
         // remove all contents and reset the capacity to it's initial value 
         // 
         // Implement this...
+        // complete
+        Object * newArray = new Object[ theCapacity ];
+        Object * temp = objects;
+        objects = newArray;
+        delete [] temp;
+
     }
 
     void reserve( int newCapacity )
@@ -38,6 +45,8 @@ class Deque
         // (provided it is larger than the current size)
         // 
         // Implement this...
+
+
     }
 
     // Operations 
