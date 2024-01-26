@@ -9,7 +9,7 @@ class Deque
 {
   public:
 
-    // Constructor
+    // Constructor test
     Deque()
       {  
          theCapacity = 8 ;
