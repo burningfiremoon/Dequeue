@@ -17,10 +17,8 @@ int main(){
     }
 
     q.display();
+    q.ddisplay();
     // cout << q.dequeue() << endl;
-
-    q.clear();
-    q.display();
 
     // q.enqueue(99);
     // q.display();

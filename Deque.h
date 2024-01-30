@@ -86,7 +86,7 @@ class Deque
     Object eject( )// Remove and return the object at the back 
     {
         // Implement this 
-        return[objects[back--]];
+        return(objects[back--]);
     }
 
     void display() const // print out the contents of the deque
