@@ -86,13 +86,14 @@ class Deque
     Object eject( )// Remove and return the object at the back 
     {
         // Implement this 
+        return[objects[back--]];
     }
 
     void display() const // print out the contents of the deque
     {
        // Implement this.  The output should be similar to that 
        // used in the Vector and Stack classes provided.
-       cout << "capacity= " << theCapacity << ", size =" << theSize << endl;
+       cout << "size =" << theSize << endl;
        
        cout << "< ";
        for (int i = front; i < theSize; i++){
@@ -107,6 +108,14 @@ class Deque
     {
         // Implement this.  The output should be in the style used in 
         // Vector and Stack classes provided.
+
+        cout << "capacity= " << theCapacity << ", size= " << theSize << endl;
+
+        cout << "[ ";
+        for (int i = 0; i < theCapacity; ++i){
+          cout << i << "=" << objects[i] << ", ";
+        }
+        cout << "]" << endl;
     }
 
 
