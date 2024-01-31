@@ -50,12 +50,15 @@ class Deque
         // (provided it is larger than the current size)
         // 
         // Implement this...
-        // complete
         if (newCapacity > theSize){
           Object * newArray = new Object [ newCapacity ];
+          back = 0;
+          int j = 0;
           for (int i = front; i < front + theSize; i++){
-            newArray[i%theCapacity] = objects[i%theCapacity];
+            newArray[j++] = objects[i%theCapacity];
+            back++;
           }
+          front = 0;
           Object * temp = objects;
           objects = newArray;
           delete [] temp;
@@ -105,7 +108,7 @@ class Deque
        for (int i = front; i < front + theSize; i++){
         cout << i << " = " << objects[i % theCapacity] << ", ";
        }
-       cout << " >" << endl;
+       cout << ">" << endl;
     }
 
     void ddisplay() const // print out the contents of the objects 
