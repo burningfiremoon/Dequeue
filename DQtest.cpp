@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 
-    const int N = 18;
+    const int N = 8;
 
     Deque<int> q;
     q.display();

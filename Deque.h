@@ -4,6 +4,11 @@
 #include <iostream>
 using namespace std;
 
+//Quick Test front = 1
+// decrease size by one to test if end goes to the front
+// yes it does properly go to the front
+// but adding to the capacity breaks the code
+
 template <typename Object>
 class Deque 
 {
