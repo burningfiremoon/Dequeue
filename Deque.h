@@ -48,8 +48,8 @@ class Deque
         // complete
         if (newCapacity > theSize){
           Object * newArray = new Object [ newCapacity ];
-          for (int i = 0; i < theSize; i++){
-            newArray[i] = objects[i];
+          for (int i = front; i < front + theSize; i++){
+            newArray[i%theCapacity] = objects[i%theCapacity];
           }
           Object * temp = objects;
           objects = newArray;
@@ -65,8 +65,9 @@ class Deque
     void enqueue( const Object & x )// Insert a new object at the back 
     {
         if( theSize == theCapacity ) reserve( 2 * theCapacity + 1 );
+
         objects[ back ] = x ; 
-        back = (back+1) % theCapacity ;
+        back = (back + 1) % (theCapacity + 1);
         theSize++ ;
     }
 
@@ -93,11 +94,11 @@ class Deque
     {
        // Implement this.  The output should be similar to that 
        // used in the Vector and Stack classes provided.
-       cout << "size =" << theSize << endl;
+       cout << "size = " << theSize << endl;
        
        cout << "< ";
-       for (int i = front; i < theSize; i++){
-        cout << i << " = " << objects[i] << ", ";
+       for (int i = front; i < front + theSize; i++){
+        cout << i << " = " << objects[i % theCapacity] << ", ";
        }
        cout << " >" << endl;
     }
@@ -116,6 +117,8 @@ class Deque
           cout << i << "=" << objects[i] << ", ";
         }
         cout << "]" << endl;
+        cout << "Front= " << front << endl;
+        cout << "Back = " << back << endl;
     }
 
 
