@@ -36,11 +36,13 @@ class Deque
         // remove all contents and reset the capacity to it's initial value 
         // 
         // Implement this...
-        // complete
         Object * newArray = new Object[ theCapacity ];
         Object * temp = objects;
         objects = newArray;
         delete [] temp;
+        front = 0;
+        back = 0;
+        theSize = 0;
 
     }
 
@@ -50,6 +52,7 @@ class Deque
         // (provided it is larger than the current size)
         // 
         // Implement this...
+        // complete
         if (newCapacity > theSize){
           Object * newArray = new Object [ newCapacity ];
           back = 0;
@@ -88,14 +91,25 @@ class Deque
     {
         theSize--;
         Object temp = objects[front];
-        front = (front+1) % theCapacity ;
+        front = (front+1) % (theCapacity + 1);
         return temp ;
     }
 
     Object eject( )// Remove and return the object at the back 
     {
-        // Implement this 
-        return(objects[back--]);
+        // Implement this (somewhat complete)
+        if (empty()){
+          return(0);
+        }
+        Object x = (objects[back]);
+        if (back == 0){
+          back = theCapacity - 1;
+        } else {
+          back--;
+        }
+        theSize--;
+        return x;
+
     }
 
     void display() const // print out the contents of the deque
@@ -103,12 +117,14 @@ class Deque
        // Implement this.  The output should be similar to that 
        // used in the Vector and Stack classes provided.
        cout << "size = " << theSize << endl;
-       
        cout << "< ";
        for (int i = front; i < front + theSize; i++){
-        cout << i << " = " << objects[i % theCapacity] << ", ";
+        cout << i << " = " << objects[i % theCapacity];
+        if (i < (front + theSize) - 1){
+          cout << ", ";
+        }
        }
-       cout << ">" << endl;
+       cout << " >" << endl;
     }
 
     void ddisplay() const // print out the contents of the objects 
@@ -122,9 +138,12 @@ class Deque
 
         cout << "[ ";
         for (int i = 0; i < theCapacity; ++i){
-          cout << i << "=" << objects[i] << ", ";
+          cout << i << "=" << objects[i];
+          if (i < theCapacity - 1){
+            cout << ", ";
+          }
         }
-        cout << "]" << endl;
+        cout << " ]" << endl;
         cout << "Front= " << front << endl;
         cout << "Back = " << back << endl;
     }
