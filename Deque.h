@@ -4,11 +4,6 @@
 #include <iostream>
 using namespace std;
 
-//Quick Test front = 1
-// decrease size by one to test if end goes to the front
-// yes it does properly go to the front
-// but adding to the capacity breaks the code
-
 template <typename Object>
 class Deque 
 {
@@ -84,7 +79,14 @@ class Deque
 
     void jump( const Object & x )// Insert a new object at the front 
     {
-        // Implement this 
+        // Implement this
+        if (theSize == theCapacity) reserver(2* theCapacity + 1);
+        size++;
+        if (front == 0){
+          front = theCapacity - 1;
+        } else {
+          objects[--front] = x;
+        }
     }
 
     Object dequeue( )// Remove and return the object at the front 
