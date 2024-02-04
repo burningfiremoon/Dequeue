@@ -29,7 +29,7 @@ class Deque
 
     // implementing the [] operator
     Object& operator[](Object index){
-      return data[index];
+      return objects[(front+ index) % theCapacity];
     }
 
     void clear( ){
