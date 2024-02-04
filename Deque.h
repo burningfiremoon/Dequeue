@@ -27,6 +27,11 @@ class Deque
     bool empty( ) const  { return size( ) == 0; }
     int size( ) const { return theSize; }
 
+    // implementing the [] operator
+    Object& operator[](Object index){
+      return data[index];
+    }
+
     void clear( ){
         front = 0;
         back = 0;
