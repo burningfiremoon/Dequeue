@@ -23,6 +23,7 @@ class Deque
       // Deconstructor
     ~Deque( )
       { delete [ ] objects; }
+      
 
     bool empty( ) const  { return size( ) == 0; }
     int size( ) const { return theSize; }
