@@ -9,17 +9,15 @@ int main(){
     const int N = 8;
 
     Deque<int> q;
-    q.display();
 
-    for (int i = 0 ; i < N; i++){
-        q.enqueue(i);
+    for (int j = 0; j < N; j++){
+        q.enqueue(j);
     }
-
-    q.display();
-    //test
-    for (int i = 0; i < N; i++){
-        cout << q.dequeue() << endl;
+    q.reserve(9);
+    for (int i = 0; i < 8; i++){
+        q.dequeue();
     }
-    q.display();
+    q.ddisplay();
+    cout << q.dequeue() << endl;
     q.ddisplay();
 }

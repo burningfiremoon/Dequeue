@@ -28,13 +28,6 @@ class Deque
     int size( ) const { return theSize; }
 
     void clear( ){
-        // remove all contents and reset the capacity to it's initial value 
-        // 
-        // Implement this...
-        Object * newArray = new Object[ theCapacity ];
-        Object * temp = objects;
-        objects = newArray;
-        delete [] temp;
         front = 0;
         back = 0;
         theSize = 0;
@@ -45,9 +38,6 @@ class Deque
     {
         // change the capacity to newCapacity 
         // (provided it is larger than the current size)
-        // 
-        // Implement this...
-        // complete
         if (newCapacity > theSize){
           Object * newArray = new Object [ newCapacity ];
           back = 0;
@@ -73,17 +63,18 @@ class Deque
         if( theSize == theCapacity ) reserve( 2 * theCapacity + 1 );
 
         objects[ back ] = x ; 
-        back = (back + 1) % (theCapacity + 1);
+        back = (back + 1) % (theCapacity);
         theSize++ ;
     }
 
     void jump( const Object & x )// Insert a new object at the front 
     {
         // Implement this
-        if (theSize == theCapacity) reserver(2* theCapacity + 1);
-        size++;
+        if (theSize == theCapacity) reserve(2* theCapacity + 1);
+        theSize++;
         if (front == 0){
           front = theCapacity - 1;
+          objects[front] = x;
         } else {
           objects[--front] = x;
         }
@@ -93,24 +84,23 @@ class Deque
     {
         theSize--;
         Object temp = objects[front];
-        front = (front+1) % (theCapacity + 1);
+        front = (front+1) % (theCapacity);
         return temp ;
     }
 
     Object eject( )// Remove and return the object at the back 
     {
-        // Implement this (somewhat complete)
+        // Implement this
         if (empty()){
           return(0);
         }
-        Object x = (objects[back]);
         if (back == 0){
           back = theCapacity - 1;
         } else {
           back--;
         }
         theSize--;
-        return x;
+        return objects[back];
 
     }
 
@@ -121,7 +111,7 @@ class Deque
        cout << "size = " << theSize << endl;
        cout << "< ";
        for (int i = front; i < front + theSize; i++){
-        cout << i << " = " << objects[i % theCapacity];
+        cout << objects[i % theCapacity];
         if (i < (front + theSize) - 1){
           cout << ", ";
         }
@@ -140,7 +130,7 @@ class Deque
 
         cout << "[ ";
         for (int i = 0; i < theCapacity; ++i){
-          cout << i << "=" << objects[i];
+          cout << i << " = " << objects[i];
           if (i < theCapacity - 1){
             cout << ", ";
           }
