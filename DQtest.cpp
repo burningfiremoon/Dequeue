@@ -13,11 +13,14 @@ int main(){
     for (int j = 0; j < N; j++){
         q.enqueue(j);
     }
-    q.reserve(9);
-    for (int i = 0; i < 8; i++){
-        q.dequeue();
-    }
-    q.ddisplay();
-    cout << q.dequeue() << endl;
-    q.ddisplay();
+    q.display();
+    cout << q[0];
+    q.dequeue();
+    q.display();
+    q.enqueue('z');
+    q.dequeue();
+    q.enqueue('k');
+    q.display();
+    q[0] = 'p';
+    q.display();
 }

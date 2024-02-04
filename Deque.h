@@ -69,7 +69,6 @@ class Deque
 
     void jump( const Object & x )// Insert a new object at the front 
     {
-        // Implement this
         if (theSize == theCapacity) reserve(2* theCapacity + 1);
         theSize++;
         if (front == 0){
