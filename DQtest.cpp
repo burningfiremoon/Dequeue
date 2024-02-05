@@ -155,9 +155,61 @@ int main(){
     cout << "End of ddisplay() test" << endl << endl;
 
     //testing circular array()
+    cout << "Start of circular array demonstration" << endl;
+    border();
+    Deque<int> CAtest;
+    for (int i = 0; i < N; i++){
+        CAtest.enqueue(i*10);
+    }
+    cout << "showing a full array" << endl;
+    CAtest.display();
+    CAtest.ddisplay();
+    cout << "dequeuing first 2 elements then enqueuing 2 elements" << endl;
+    cout << CAtest.dequeue() << " " << CAtest.dequeue() << endl;
+    CAtest.display();
+    CAtest.enqueue(111);
+    CAtest.enqueue(222);
+    CAtest.display();
+    CAtest.ddisplay();
+    CAtest.eject();
+    CAtest.eject();
+    CAtest.jump(10);
+    CAtest.jump(0);
+    cout << "In the queue the new values are added to the back, but in our array it's at the front" << endl;
+    cout << "Ejecting last 2 elements in queue then jumping 2 values to the front" << endl;
+    CAtest.display();
+    cout << CAtest.eject() << " " << CAtest.eject() << endl;
+    CAtest.display();
+    CAtest.jump(333);
+    CAtest.jump(444);
+    CAtest.display();
+    CAtest.ddisplay();
+    cout << "In the queue the new values are added to the front, but in our array it's at the back" << endl;
+    border();
+    cout << "End of circular array demonstration" << endl << endl;
 
+    // Queue holds many data types
+    cout << "Start of template demonstration" << endl;
+    border();
+    Deque<char> Qchar;
+    for (int i = 0; i< N; i++){
+        Qchar.enqueue('c');
+    }
+    Qchar.display();
+    Deque<bool> Qbool;
+    for (int i = 0; i< N; i++){
+        Qbool.enqueue(i % 2);
+    }
+    Qbool.display();
+    Deque<float> Qfloat;
+    for (int i = 0; i< N; i++){
+        Qfloat.enqueue(i + 0.11);
+    }
+    Qfloat.display();
+    border();
+    cout << "End of template demonstration" << endl << endl;
 }
 
 void border(){
-    cout << "==============================" << endl;
+    cout << "=======================================" << endl;
 }

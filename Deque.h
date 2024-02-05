@@ -117,7 +117,7 @@ class Deque
        cout << "< ";
        for (int i = 0; i < theSize; i++){
         cout << i << " = " << objects[(front + i) % theCapacity];
-        if (i < (front + theSize) - 1){
+        if (i < (theSize) - 1){
           cout << ", ";
         }
        }
