@@ -8,13 +8,17 @@ int main(){
 
     const int N = 8;
 
-    Deque<char> q;
+    // Constructor
+    Deque<int> Qint;
 
-    for (int j = 0; j < N; j++){
-        q.enqueue('j');
+    Qint.display(); // creates an empty queue
+
+    if (Qint.empty()){
+        cout << "Qint is empty"<< endl;
+        Qint.enqueue(11111);
+        Qint.display();
     }
-    q.display();
 
-    cout << q[0];
+
 
 }
