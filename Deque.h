@@ -115,8 +115,8 @@ class Deque
        // used in the Vector and Stack classes provided.
        cout << "size = " << theSize << endl;
        cout << "< ";
-       for (int i = front; i < front + theSize; i++){
-        cout << objects[i % theCapacity];
+       for (int i = 0; i < theSize; i++){
+        cout << i << " = " << objects[(front + i) % theCapacity];
         if (i < (front + theSize) - 1){
           cout << ", ";
         }
