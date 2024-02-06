@@ -99,7 +99,7 @@ int main(){
     for (int i = 3; i <= N; i++){
         temp2.jump(i*10);
     }
-    temp2.ddisplay();
+    temp2.display();
     cout << "Queue is at full capacity" << endl;
     temp2.jump(90);
     temp2.ddisplay();
